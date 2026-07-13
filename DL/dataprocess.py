@@ -1,4 +1,5 @@
 #学习pytorch中tensor张量的基本操作
+#对应教材https://zh.d2l.ai/chapter_preliminaries/ndarray.html
 
 import torch
 
