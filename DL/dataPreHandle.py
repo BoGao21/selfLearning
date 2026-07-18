@@ -1,5 +1,7 @@
-
-
+```
+学习pytorch中读取文件数据并进行数据处理的基本操作
+对应教材https://zh.d2l.ai/chapter_preliminaries/pandas.html
+```
 import os
 
 #创建数据源，创建写入操作执行一次即可
