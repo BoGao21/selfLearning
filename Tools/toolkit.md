@@ -58,16 +58,13 @@ Understand-Anything目录下有一个install.sh，可以安装到以下Agent中
 14) kiro
 
 5.使用
-(1) 分析代码库，生成知识图谱
-/understand
-
-(2)中文支持
+(1) 分析代码库，生成知识图谱，并且中文支持
 /understand --language zh
 
-(3)打开仪表盘
+(2)打开仪表盘
 /understand-dashboard
 
-(4)其他命令
+(3)其他命令
 命令	                      作用
 /understand-chat <问题>	    基于已生成的图谱，用自然语言提问，如“鉴权流程是怎么跑的？”
 /understand-diff	          在提交代码前运行，分析当前修改会波及/影响哪些其他模块，提前预防 Bug
@@ -75,13 +72,16 @@ Understand-Anything目录下有一个install.sh，可以安装到以下Agent中
 /understand-onboard	        为团队新成员生成引导式上手文档
 /understand-domain	        提取业务领域知识（领域、流程、步骤），将代码映射到业务流程
 
-(5)文件
+(4)文件
 文件	                                      说明
 .ua/knowledge-graph.json	                  新项目的默认图谱文件位置
 .understand-anything/knowledge-graph.json	  兼容旧版项目的图谱文件位置
 
-(6)如果你不想通过 AI 对话启动面板，也可以在终端直接运行以下命令，然后手动访问 http://localhost:3000
+(5)如果你不想通过 AI 对话启动面板，也可以在终端直接运行以下命令
+
 ua serve
+
+然后手动访问 http://localhost:3000
 
 
 
