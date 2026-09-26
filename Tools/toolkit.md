@@ -83,6 +83,18 @@ ua serve
 
 然后手动访问 http://localhost:3000
 
+二. 安装Serena
+
+(1)安装uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source ~/.bashrc
+
+(2)下载源码
+git clone git@github.com:oraios/serena.git
+也可以zip包下载
+cd serena
+
+(3)
 
 
 
