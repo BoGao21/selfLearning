@@ -1,12 +1,15 @@
 一. Understand-Anythiny离线安装部署
 1. 更新node
-(1)网络不受限
-# 安装 fnm (macOS/Linux)
-curl -fsSL https://fnm.vercel.app/install | bash
 
-# 安装并使用 Node 22
-fnm install 22
-fnm use 22
+(1)网络不受限
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source ~/.bashrc   # 或 source ~/.zshrc
+
+nvm install 22
+nvm use 22
+nvm alias default 22
+
+node -v   # 应输出 v22.x.x
 
 (2)网络受限
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
