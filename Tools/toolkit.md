@@ -94,7 +94,94 @@ git clone git@github.com:oraios/serena.git
 也可以zip包下载
 cd serena
 
-(3)
+(4)尝试启动验证serena安装依赖
+uv run serena start-mcp-server --help
+
+(4)建立项目的serena目录
+cp -r .serena /path/to/project/
+
+三. 安装codegraph
+
+(1)克隆仓库并构建
+
+git clone https://github.com/colbymchenry/codegraph.git
+
+cd codegraph
+
+npm install
+
+npm run build   
+
+(2)建立全局链接
+
+npm link
+
+(3)验证
+
+codegraph --version
+
+
+四. 安装mcp broker
+
+(1)克隆仓库并构建
+
+git clone https://github.com/jolks/mcp-broker.git
+
+cd mcp-broker
+
+pnpm install
+
+pnpm run build
+
+pnpm start serve #运行测试
+
+(2)配置上游服务器
+
+mkdir -p ~/.mcp-broker
+
+~/.mcp-broker/servers.json
+内容：
+{
+  "mcpServers": {
+    "codegraph": {
+      "command": "codegraph",
+      "args": ["serve", "--mcp"],
+      "transport": "stdio",
+      "namespace": "cg"
+    },
+    "serena": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory", "/root/serena",
+        "serena",
+        "start-mcp-server",
+        "--context", "ide-assistant",
+        "--project", "/root/AIStokeTool"
+      ],
+      "transport": "stdio",
+      "namespace": "serena"
+    }
+  }
+}
+
+关键点：
+command 使用 PATH 中的可执行文件名即可。
+namespace 给每个上游的工具加前缀，避免命名冲突。
+Serena 的 --directory 指向 Serena 源码目录，--project 指向你要分析的目标项目。
+如果你之前已有其他 MCP 配置（如 Cursor、Claude Desktop），也可以运行 npx mcp-broker setup，它会自动检测并导入现有配置到 ~/.mcp-broker/servers.json。
+
+(3)启动服务
+
+npx mcp-broker serve
+
+(4)Agent侧添加
+npx mcp-broker setup
+会自动检测并导入到Agent中
+
+
+
+
 
 
 
